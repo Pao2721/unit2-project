@@ -5,4 +5,10 @@ export {
  Profile
 }
 
-const profile
+const profileSchema = new Schema({
+ name: String,
+ googleId: String,
+ friends: [{type: Schema.Types.ObjectId, ref: 'Profile' }],
+ collection: [{tyep: Schema.Types.ObjectId, ref: 'Collection' }],
+
+})
