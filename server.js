@@ -6,7 +6,9 @@ import cookieParser from 'cookie-parser'
 import logger from 'morgan'
 
 import { router as indexRouter } from './routes/index.js'
-import { router as usersRouter } from './routes/users.js'
+import { router as authRouter} from '../routes.js'
+import { router as profilesRouter } from '../routes/users.js'
+import { router as collectionsRouter} from '../routes/collections.js'
 
 const app = express()
 
@@ -17,10 +19,10 @@ app.set(
 )
 app.set('view engine', 'ejs')
 
+app.use(methodOverride('_method'))
 app.use(logger('dev'))
 app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
-app.use(cookieParser())
+app.use(express.urlencoded({ extended: true }))
 app.use(
   express.static(
     path.join(path.dirname(fileURLToPath(import.meta.url)), 'public')
@@ -28,7 +30,10 @@ app.use(
 )
 
 app.use('/', indexRouter)
-app.use('/users', usersRouter)
+app.use('/auth', authRouter)
+app.use('/profiles', profilesRouter)
+app.use('/collections',collectionsRouter)
+app.use('/cards', cardsRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
