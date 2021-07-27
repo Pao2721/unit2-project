@@ -1,17 +1,24 @@
 import ('dotenv/config')
 import createError from 'http-errors'
 import express from 'express'
+import session from 'express-session'
+import method from 'method-override'
 import path from 'path'
 import { fileURLToPath } from 'url'
-import cookieParser from 'cookie-parser'
 import logger from 'morgan'
 
-import { router as indexRouter } from './routes/index.js'
-import { router as authRouter} from '../routes.js'
-import { router as profilesRouter } from '../routes/users.js'
+const app = express()
+//Connects to MongoDB
+import('./config/database.js')
+//Loads Passport
+import('./config/passport.js')
+//Require routes
+import { router as indexRouter } from '../routes/index.js'
+import { router as authRouter} from '../routes/auth.js'
+import { router as profilesRouter } from '../routes/profiles.js'
+import { router as cardsRouter } from '../routes/cards.js'
 import { router as collectionsRouter} from '../routes/collections.js'
 
-const app = express()
 
 // view engine setup
 app.set(
