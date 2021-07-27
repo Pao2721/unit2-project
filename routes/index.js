@@ -1,16 +1,16 @@
-import { Router } from 'express'
-import * as indexCtrl from '../controllers/index.js'
-const router = Router()
-export {
- router
-}
+// import { Router } from 'express'
+// import * as indexCtrl from '../controllers/index.js'
+// const router = Router()
+// export {
+//  router
+// }
 
-const router = Router()
+// const router = Router()
 
-router.get('/', isLoggedIn, indexCtrl.index)
+// router.get('/', loggedIn, indexCtrl.index)
 
-function isLoggedIn(req, res, next) {
- if (req.isAuthenticated()) return next();
- res.redirect("/auth/google");
-}
+// function loggedIn(req, res, next) {
+//  if (req.isAuthenticated()) return next();
+//  res.redirect("/auth/google");
+// }
 

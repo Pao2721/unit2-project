@@ -6,12 +6,15 @@ import method from 'method-override'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import logger from 'morgan'
+import{ passUserToView } from './middleware/middleware.js'
 
 const app = express()
+
 //Connects to MongoDB
 import('./config/database.js')
 //Loads Passport
 import('./config/passport.js')
+
 //Require routes
 import { router as indexRouter } from '../routes/index.js'
 import { router as authRouter} from '../routes/auth.js'
@@ -36,6 +39,22 @@ app.use(
     path.join(path.dirname(fileURLToPath(import.meta.url)), 'public')
   )
 )
+
+// Session Middleware
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      sameSite: 'lax',
+    }
+  })
+)
+
+app.use(passport.initialize())
+app.use(passport.session())
+
 
 app.use('/', indexRouter)
 app.use('/auth', authRouter)
