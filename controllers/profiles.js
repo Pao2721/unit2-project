@@ -70,7 +70,7 @@ function show(req, res) {
   Profile.findById(req.params.id)
   .populate('friends')
   .then(profile => {
-    Game.find({ collectedBy: profile._id })
+    Card.find({ collectedBy: profile._id })
     .then(games => {
       Profile.findById(req.user.profile)
       .then(userProfile => {

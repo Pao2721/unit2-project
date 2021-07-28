@@ -11,8 +11,10 @@ router.get('/', function (req,res,next) {
 })
 router.get('/:id', loggedIn, profilesCtrl.show)
 router.get('/:id/edit',loggedIn, profilesCtrl.edit)
-router.put('/:id', loggedIn,)
-
+router.put('/:id', loggedIn, profilesCtrl.update)
+//Adding and Subtracting Friends
+router.get('/:id/friend', loggedIn, profilesCtrl.addFriend)
+router.get('/:id/unfriend', loggedIn, profilesCtrl.removeFriend)
 
 
 function loggedIn(req, res, next) {
