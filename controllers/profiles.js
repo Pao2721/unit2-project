@@ -1,6 +1,6 @@
 import { Profile } from "../models/profiles.js"
 import { Card } from "../models/cards.js"
-import { Collections } from "../models/collections.js"
+import { Collection } from "../models/collections.js"
 
 export{
  index,

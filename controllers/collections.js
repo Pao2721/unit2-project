@@ -1,5 +1,5 @@
 import { Card } from '../models/cards.js'
-import { Profile } from '../models/profile.js'
+import { Profile } from '../models/profiles.js'
 
 export{
 index,

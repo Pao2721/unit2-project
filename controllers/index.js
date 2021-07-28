@@ -1,4 +1,4 @@
-import { Profile } from "../models/profile.js"
+import { Profile } from "../models/profiles.js"
 import { Collection } from "../models/collections.js"
 import { Card } from "../models/cards.js"
 
