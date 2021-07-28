@@ -8,7 +8,8 @@ export{
 const collectionSchema = new Schema({
  name: String,
  collector: [{type: Schema.Types.ObjectId, ref:'Profile'}],
- cards: [{type: Schema.Types.ObjectId, ref: "Card"}]
+ cards: [{type: Schema.Types.ObjectId, ref: 'Card'}],
+ comments: String
+}) 
 
-
-})
+  
