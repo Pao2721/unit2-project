@@ -6,10 +6,12 @@ export {
  router 
 }
 
-router.get('/:id', loggedIn, profilesCtrl.show)
 router.get('/', function (req,res,next) {
- res.send('respond with a resource')
+ res.send('respond with a resource pro')
 })
+router.get('/:id', loggedIn, profilesCtrl.show)
+router.get('/:id/edit',loggedIn, profilesCtrl.edit)
+router.put('/:id', loggedIn,)
 
 
 

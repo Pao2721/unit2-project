@@ -5,7 +5,9 @@ const router = Router()
 export {
  router
 }
-
+router.get('/', function (req,res,next) {
+ res.send('respond with a resource collecin')
+})
 router.get('/', loggedIn, collectionCtrl.index)
 
 function loggedIn(req, res, next) {
