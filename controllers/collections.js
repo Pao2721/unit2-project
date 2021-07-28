@@ -8,6 +8,28 @@ addToCollection,
 removeFromCollection,
 }
 
+function show(req, res) {
+  axios
+  .get(`https://api.rawg.io/api/games/${req.params.id}?key=${process.env.API_KEY}`)
+  .then((response) => {
+    Game.findOne({ rawgId: response.data.id })
+    // This is where we'll populate collectedBy
+    // This is where we'll deep-populate reviews
+    .then((game)=> {
+      res.render("games/show", {
+        title: "Game Details",
+        apiResult: response.data,
+        game
+      })
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
+
 function index(req, res) {
 
 }

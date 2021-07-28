@@ -65,6 +65,18 @@ function addToCollection(req, res) {
 function search(req, res) {
 
 }
+
 function removeFromCollection(req, res) {
-  
+  Card.findOne({ rawgId: req.params.id})
+  .then(game => {
+    card.collectedBy.remove({_id:req.user.profile._id})
+    card.save()
+    .then(() => {
+      res.redirect(`/cards/${req.params.id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
 }

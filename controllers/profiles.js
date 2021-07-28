@@ -7,7 +7,7 @@ export{
  update,
  edit,
  show,
- removefriend,
+ removeFriend,
  addFriend
 }
 
@@ -26,7 +26,7 @@ function addFriend(req, res) {
   })
 }
 
-function removefriend(req, res) {
+function removeFriend(req, res) {
  User.findById(req.user.profile)
  .then(profile => {
    profile.frinds.remove({_id:req.params.id})
