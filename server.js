@@ -1,8 +1,9 @@
-import ('dotenv/config')
+import 'dotenv/config'
+import passport from 'passport'
 import createError from 'http-errors'
 import express from 'express'
 import session from 'express-session'
-import method from 'method-override'
+import methodOverride from 'method-override'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import logger from 'morgan'
@@ -16,11 +17,11 @@ import('./config/database.js')
 import('./config/passport.js')
 
 //Require routes
-import { router as indexRouter } from '../routes/index.js'
-import { router as authRouter} from '../routes/auth.js'
-import { router as profilesRouter } from '../routes/profiles.js'
-import { router as cardsRouter } from '../routes/cards.js'
-import { router as collectionsRouter} from '../routes/collections.js'
+import { router as indexRouter } from './routes/index.js'
+import { router as authRouter} from './routes/auth.js'
+import { router as profilesRouter } from './routes/profiles.js'
+import { router as cardsRouter } from './routes/cards.js'
+import { router as collectionsRouter} from './routes/collections.js'
 
 
 // view engine setup

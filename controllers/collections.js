@@ -1,10 +1,15 @@
-import { Card } from '../models/card.js'
+import { Card } from '../models/cards.js'
 import { Profile } from '../models/profile.js'
 
 export{
+index,
 create,
 addToCollection,
 removeFromCollection,
+}
+
+function index(req, res) {
+
 }
 
 function addToCollection(req, res) {
@@ -45,6 +50,10 @@ function removeFromCollection(req, res) {
    console.log(err)
    res.redirect('/')
  })
+}
+
+function create(req, res) {
+
 }
 
 // function search(req, res) {

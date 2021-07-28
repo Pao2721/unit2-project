@@ -1,13 +1,18 @@
-import { Card } from '../models/card.js'
+import { Card } from '../models/cards.js'
 
 
 
 export{
 show,
 addToCollection,
+create,
+search,
+removeFromCollection
 }
 
+function create(req, res) {
 
+}
 function show(req, res)  {
  
 }
@@ -55,4 +60,11 @@ function addToCollection(req, res) {
  console.log(err)
  res.redirect('/')
 })
+}
+
+function search(req, res) {
+
+}
+function removeFromCollection(req, res) {
+  
 }

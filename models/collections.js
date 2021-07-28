@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 export{
- Card
+ Collection
 }
 
 const collectionSchema = new Schema({
@@ -12,4 +12,4 @@ const collectionSchema = new Schema({
  comments: String
 }) 
 
-  
+  const Collection = mongoose.model('Collectionx',collectionSchema)

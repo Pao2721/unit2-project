@@ -16,4 +16,4 @@ const cardSchema = new Schema ({
  timestamps: true
 })
 
-const Card = mongoose.models('Card', cardSchema)
+const Card = mongoose.model('Card', cardSchema)

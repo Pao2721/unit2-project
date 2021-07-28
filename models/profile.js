@@ -1,17 +1,17 @@
-// import mongoose from 'mongoose'
-// const Schema = mongoose.Schema
+import mongoose from 'mongoose'
+const Schema = mongoose.Schema
 
-// export {
-//  Profile
-// }
+export {
+ Profile
+}
 
-// const profileSchema = new Schema({
-//  name: String,
-//  googleId: String,
-//  friends: [{type: Schema.Types.ObjectId, ref: 'Profile' }],
-//  collection: [{type: Schema.Types.ObjectId, ref: 'Collection' }],
-// },{
-//  timestamps: true
-// })
+const profileSchema = new Schema({
+ name: String,
+ googleId: String,
+ friends: [{type: Schema.Types.ObjectId, ref: 'Profile' }],
+ collectionx: [{type: Schema.Types.ObjectId, ref: 'Collectionx' }],
+},{
+ timestamps: true
+})
 
-// const Profile = mongoose.model('Profile', profileSchema)
+const Profile = mongoose.model('Profile', profileSchema)
