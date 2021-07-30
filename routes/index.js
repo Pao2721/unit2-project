@@ -7,7 +7,7 @@ export {
 }
 
 router.get('/', function (req,res,next) {
- res.send('respond with a resource ind')
+ res.send('respond with a resource index')
 })
 
 router.get('/', loggedIn, indexCtrl.index)

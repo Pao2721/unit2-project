@@ -9,9 +9,9 @@ const cardSchema = new Schema ({
  name: String,
  benefit: String,
  detriment: String,
- //likes: Number,
-// comments: String,
- //collected: [{type: Schema.Types.objectId, ref: 'Collection'}]
+ likes: Number,
+ comments: String,
+ collected: [{type: Schema.Types.objectId, ref: 'Collection'}]
 }, {
  timestamps: true
 })

@@ -6,11 +6,12 @@ export {
  router 
 }
 
-router.get('/', function (req,res,next) {
- res.send('respond with a resource pro')
+router.get('/profiles', function (req,res,next) {
+ res.render('respond with a resource pro')
 })
+
 router.get('/:id', loggedIn, profilesCtrl.show)
-router.get('/:id/edit',loggedIn, profilesCtrl.edit)
+router.get('/:id/edit', loggedIn, profilesCtrl.edit)
 router.put('/:id', loggedIn, profilesCtrl.update)
 //Adding and Subtracting Friends
 router.get('/:id/friend', loggedIn, profilesCtrl.addFriend)

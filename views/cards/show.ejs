@@ -1,67 +1,12 @@
-<%# This is where we'll display a button to add/remove the game from your collection %> 
-<% if (!game?.collectedBy.some(profile => profile._id.equals(user.profile._id))) { %>
- <form 
-   class="text-center" 
-   action="/games/<%= apiResult.id %>/addToCollection" 
-   method="POST"
- >
-   <input type="text" name="name" hidden value="<%= apiResult.name %>">
-   <input type="text" name="rawgId" hidden value="<%= apiResult.id %>">
-   <input 
-     type="text" 
-     name="imageUrl" 
-     hidden 
-     value="<%= apiResult.background_image %>"
-   >
-   <input 
-     type="text" 
-     name="released" 
-     hidden 
-     value="<%= apiResult.released %>"
-   >
-   <button class="btn btn-primary">
-     Add To Collection
-   </button> 
- </form>
-<% } %>
-<% if (game?.collectedBy.some(profile => profile._id.equals(user.profile._id))) { %>
- <form 
-   class="text-center" 
-   action="/games/<%= apiResult.id %>/removeFromCollection?_method=DELETE" 
-   method="POST"
- >
-   <button class="btn btn-danger">
-     Remove From Collection
-   </button>
- </form>
-<% } %>
-<%# This is where we'll display a form to add a review once the game is added to your collection %>
-<% if (!game?.reviews.some(review => review.author.equals(user.profile._id)) && game?.collectedBy.some(profile => profile._id.equals(user.profile._id))) { %>
- <form action="/reviews/<%= game._id %>" method="POST">
-   <div class="mb-3 mt-4">
-     <label 
-       for="exampleFormControlTextarea1" 
-       class="form-label text-light"
-     >
-       Leave a review:
-     </label>
-     <textarea 
-       name="content" 
-       class="form-control" 
-       id="exampleFormControlTextarea1" 
-       rows="3"
-     ></textarea>
-     <select 
-       name="rating" 
-       class="form-select" 
-     >
-       <option value="1">1</option>
-       <option value="2">2</option>
-       <option value="3">3</option>
-       <option value="4">4</option>
-       <option value="5">5</option>
-     </select>        
-   </div>
-   <button class="btn btn-warning"type="submit">Add Review</button>
- </form> 
-<% } %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Viewing</title>
+</head>
+<body>
+  
+</body>
+</html>

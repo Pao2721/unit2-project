@@ -1,38 +1,44 @@
+import { Collection } from '../models/collections.js'
 import { Card } from '../models/cards.js'
 import { Profile } from '../models/profiles.js'
 
 export{
-index,
 create,
 addToCollection,
 removeFromCollection,
 }
 
 function show(req, res) {
-  axios
-  .get(`https://api.rawg.io/api/games/${req.params.id}?key=${process.env.API_KEY}`)
-  .then((response) => {
-    Card.findOne({ rawgId: response.data.id })
-    // This is where we'll populate collectedBy
-    // This is where we'll deep-populate reviews
-    .then((card)=> {
-      res.render("cards/show", {
-        title: "Card Details",
-        apiResult: response.data,
-        card
-      })
+  Collections.findById(req.params.id)
+  .populate('cards')
+  .then((collection) => {
+    res.render('collections/show', {
+      title: 'Card Collection',
+      collection 
     })
   })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/')
-  })
-}
+ }
 
 
-function index(req, res) {
-
-}
+// function index(req, res) {
+//   Collection.find({})
+//   .populate({
+//     path: 'collected',
+//     populate: {
+//       path: 'collector'
+//     }
+//   }) 
+//   .populate('cards')
+//   .then((collections) => {
+//     res.render('collections/index', {
+//       title: 'Your Cards',
+//       collection
+//     })
+//   })
+//   .catch((err) => {
+//     res.render(err)
+//   })
+// }
 
 function addToCollection(req, res) {
  req.body.collected = req.user.profile_id
@@ -75,7 +81,12 @@ function removeFromCollection(req, res) {
 }
 
 function create(req, res) {
-
+ req.body.profile = req.user.profile._id
+ Collection.create(req.body)
+ .then((deck) => {
+   Profile.findById
+   res.redirect('/collections')
+ })
 }
 
 // function search(req, res) {

@@ -1,24 +1,29 @@
+import axios from 'axios'
 import { Card } from '../models/cards.js'
 
 
 
 export{
+newCard as new,
 show,
 addToCollection,
-create,
 search,
-removeFromCollection
-}
-
-function create(req, res) {
+removeFromCollection,
 
 }
+
+
+
+function newCard(req, res) {
+  res.render('cards/new')
+}
+
 function show(req, res)  {
  
 }
 
 function addToCollection(req, res) {
- req.body.collectedBy = req.user.profile._id
+ req.body.collected = req.user.profile._id
  Card.findOne({ cardId: req.params.id})
  .then(card => {
   if(card) {
@@ -63,7 +68,17 @@ function addToCollection(req, res) {
 }
 
 function search(req, res) {
-
+axios.get()
+.then(response => {
+  res.render('cards/new', {
+    title: 'Saerch Results',
+    results: response.data.results
+  })
+})
+.catch(err => {
+  console.log(err)
+  res.redirect('/')
+})
 }
 
 function removeFromCollection(req, res) {

@@ -7,10 +7,12 @@ export {
 }
 
 router.get('/', function (req,res,next) {
- res.send('respond with a resource card')
+ res.render('cards',  {
+  Title: 'NIPOK',
+  })
 })
 
-router.get('/', cardsCtrl.create)
+router.get('/new', cardsCtrl.new)
 router.get('/:id', cardsCtrl.show)
 router.post('search', cardsCtrl.search)
 router.post('/:id/addToCollection', loggedIn, cardsCtrl.addToCollection)

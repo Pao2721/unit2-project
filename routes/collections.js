@@ -6,7 +6,7 @@ export {
  router
 }
 router.get('/', function (req,res,next) {
- res.send('respond with a resource collecin')
+ res.send('respond with a resource collect')
 })
 router.get('/', loggedIn, collectionCtrl.index)
 
