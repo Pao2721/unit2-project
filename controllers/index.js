@@ -7,6 +7,13 @@ export {
 }
 
 function index(req, res) {
- Card.find({})
- 
+ Cards.find({})
+ .sort({_id: -1})
+ .populate('Profile')
+ .then(cards => {
+  res.render('index', {
+   cards: cards,
+   title: Yo
+  })
+ })
 }
