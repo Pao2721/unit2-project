@@ -9,10 +9,17 @@ show,
 addToCollection,
 search,
 removeFromCollection,
-
+create
 }
 
-
+function create(req,res) {
+  req.body.profile= req.user.profile._id
+  const card = new Card(req.body)
+  card.save((err) => {
+    if (err) return res.redirect('/cards/new')
+    res.redirect('/')
+  })
+}
 
 function newCard(req, res) {
   res.render('cards/new')

@@ -84,7 +84,7 @@ function removeFromCollection(req, res) {
 function create(req, res) {
  req.body.profile = req.user.profile._id
  Collection.create(req.body)
- .then((deck) => {
+ .then((collection) => {
    Profile.findById
    res.redirect('/collections')
  })
