@@ -1,6 +1,6 @@
 import { Profile } from "../models/profiles.js"
 import { Card } from "../models/cards.js"
-import { Collection } from "../models/collections.js"
+import { Collectionx } from "../models/collections.js"
 
 export {
  index,
@@ -17,7 +17,7 @@ function addFriend(req, res) {
    profile.friends.push(req.params.id)
    profile.save()
    .then(() => {
-    res.redirect(`/users/${req.params.id}`)
+    res.redirect(`/profiles/${req.params.id}`)
    })
   })
   .catch(err => {

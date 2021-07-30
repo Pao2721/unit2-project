@@ -19,7 +19,15 @@ function newCard(req, res) {
 }
 
 function show(req, res)  {
- 
+ Cards.findById(req.params.id)
+ .populate('cards')
+ .then((card) => {
+   res.render('cards/show', {
+     title: 'Pick a card any Card',
+     card
+   })
+
+ })
 }
 
 function addToCollection(req, res) {

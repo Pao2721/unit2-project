@@ -11,7 +11,7 @@ const cardSchema = new Schema ({
  detriment: String,
  likes: Number,
  comments: String,
- collected: [{type: Schema.Types.objectId, ref: 'Collection'}]
+ collected: [{type: Schema.Types.ObjectId, ref: 'Collection'}]
 }, {
  timestamps: true
 })

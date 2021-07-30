@@ -1,8 +1,9 @@
-import { Collection } from '../models/collections.js'
+import { Collectionx } from '../models/collections.js'
 import { Card } from '../models/cards.js'
 import { Profile } from '../models/profiles.js'
 
 export{
+index,
 create,
 addToCollection,
 removeFromCollection,
@@ -12,7 +13,7 @@ function show(req, res) {
   Collections.findById(req.params.id)
   .populate('cards')
   .then((collection) => {
-    res.render('collections/show', {
+    res.render('/collections', {
       title: 'Card Collection',
       collection 
     })
@@ -20,25 +21,25 @@ function show(req, res) {
  }
 
 
-// function index(req, res) {
-//   Collection.find({})
-//   .populate({
-//     path: 'collected',
-//     populate: {
-//       path: 'collector'
-//     }
-//   }) 
-//   .populate('cards')
-//   .then((collections) => {
-//     res.render('collections/index', {
-//       title: 'Your Cards',
-//       collection
-//     })
-//   })
-//   .catch((err) => {
-//     res.render(err)
-//   })
-// }
+function index(req, res) {
+  Collection.find({})
+  .populate({
+    path: 'collected',
+    populate: {
+      path: 'collector'
+    }
+  }) 
+  .populate('cards')
+  .then((collections) => {
+    res.render('collections/index', {
+      title: 'Your Cards',
+      collection
+    })
+  })
+  .catch((err) => {
+    res.render(err)
+  })
+}
 
 function addToCollection(req, res) {
  req.body.collected = req.user.profile_id

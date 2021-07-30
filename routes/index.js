@@ -7,7 +7,9 @@ export {
 }
 
 router.get('/', function (req,res,next) {
- res.send('respond with a resource index')
+ res.render('index', {
+  title: 'HomePage'
+ })
 })
 
 router.get('/', loggedIn, indexCtrl.index)
