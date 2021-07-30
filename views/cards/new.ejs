@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+ <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <title>New Card </title>
-</head>
-<body>
- <h1>Cards new</h1>
+ </head>
+ <body>
+  <h1>Make a card that fits your life</h1>
+  <form action="/cards" method="POST">
+   <div class="mb-3">
+    <label for="Card's Title" class="form-label"></label>
+    <input name="Title" type="text" class="form-control" plcaeholer="Enter a tite for this card">
+   </div>
+   <div>
+    <label for="Card's Benefit" class="form-label"></label>
+    <input name="Card Benefit" type="text" class="form-control" plcaeholer="Enter a card's beneficial property">
+   </div>
+   <div>
+    <label for="Card's Detriment" class="form-label"></label>
+    <input name="Card  Detriment" type="text" class="form-control" plcaeholer="Enter a card's detrimental property">
+   </div>
+   <div>
+    <label for="Card's Benefit" class="form-label"></label>
+    <input name="Card Benefit" type="text" class="form-control" plcaeholer="Enter a card's beneficial property">
+   </div>
+   </div>
+   <button type="submit" class btn btn-primary>Create Card!</button>
+</form>
 </body>
 </html>
