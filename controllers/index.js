@@ -7,5 +7,6 @@ export {
 }
 
 function index(req, res) {
- res.send
+ Card.find({})
+ 
 }
